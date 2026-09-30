@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  body{background:#0f1117;color:#e6e6e6;font-family:Segoe UI,system-ui,sans-serif;max-width:640px;margin:30px auto;padding:0 16px;line-height:1.6}
+  h1{font-size:1.3em}h2{font-size:1em;color:#8ab4ff;margin-top:1.8em}
+  .box{background:#1a1d27;border:1px solid #2a2e3d;border-radius:10px;padding:16px 20px;margin:12px 0}
+  label{display:block;font-size:0.85em;color:#9aa0b0;margin-top:10px}
+  input,select{background:#252938;border:1px solid #2a2e3d;color:#e6e6e6;border-radius:6px;padding:8px 10px;font-size:0.95em;width:100%;box-sizing:border-box}
+  .grid{display:grid;grid-template-columns:110px 1fr 110px;gap:10px}
+  button{background:#3b6ef5;color:#fff;border:0;border-radius:6px;padding:10px 18px;font-weight:600;cursor:pointer;margin-top:16px}
+  button:hover{background:#5080f8}
+  button.warn{background:#3a3f52}
+  #msg{margin-top:10px;font-size:0.9em;color:#5dd39e}
+  .warnbox{border-color:#5a3d2e;background:#241a12;font-size:0.9em}
+  code{background:#252938;padding:2px 6px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<h1>DMM Region Fix — settings</h1>
+
+<h2>Cookies (always on)</h2>
+<div class="box">
+  Nothing to configure. The extension keeps <code>ckcy=1</code>, <code>cklg=welcome</code> and <code>age_check_done=1</code>
+  pinned on <code>dmm.com</code> and <code>dmm.co.jp</code>, and instantly restores them if DMM overwrites or deletes them.
+</div>
+
+<h2>Japan proxy for DMM traffic (optional)</h2>
+<div class="box">
+  <p style="font-size:0.9em;margin-top:0">If the cookies alone don't get you in (DMM sometimes hard-checks the IP), put a Japan proxy here and <b>only DMM/FANZA traffic</b> will go through it — the rest of your browsing stays on your normal connection.</p>
+  <p style="font-size:0.9em">⚠ An extension cannot create a Japanese IP by itself — you must get the proxy from a service you trust (your VPN provider's proxy/SOCKS, or your own Japan VPS). <b>Never use proxies from random free lists</b>: your DMM login passes through them and can be stolen.</p>
+
+  <div class="grid">
+    <div>
+      <label>Type</label>
+      <select id="scheme">
+        <option value="http">HTTP</option>
+        <option value="socks5">SOCKS5</option>
+      </select>
+    </div>
+    <div>
+      <label>Host (Japan server)</label>
+      <input id="host" placeholder="jp.example.com" autocomplete="off">
+    </div>
+    <div>
+      <label>Port</label>
+      <input id="port" placeholder="1080" inputmode="numeric" autocomplete="off">
+    </div>
+  </div>
+  <div class="grid" style="grid-template-columns:1fr 1fr;margin-top:0">
+    <div>
+      <label>Username (optional)</label>
+      <input id="user" autocomplete="off">
+    </div>
+    <div>
+      <label>Password (optional)</label>
+      <input id="pass" type="password" autocomplete="off">
+    </div>
+  </div>
+
+  <button id="save">Save &amp; enable</button>
+  <button id="disable" class="warn">Turn proxy off</button>
+  <div id="msg"></div>
+</div>
+
+<div class="box warnbox">
+  <b>Where to get a Japan proxy:</b> many VPN subscriptions include one (check your provider's app for SOCKS/proxy details). Free options that are reputable: ProtonVPN (free plan, Japan server — as a whole-device VPN), Windscribe (free 10 GB/month, includes proxy). Or rent a cheap Japan VPS and run a SOCKS5 proxy on it.<br><br>
+  <b>Reminder:</b> region-spoofing breaks DMM's terms of service — use at your own risk, and avoid charging money while it's active.
+</div>
+
+<script src="options.js"></script>
+</body>
+</html>

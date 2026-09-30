@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "DMM Region Fix (Iv Title)",
+  "version": "1.0.0",
+  "description": "Pins DMM/FANZA region cookies to Japan and optionally routes only DMM domains through your Japan proxy. Made for browser games like イヴンタイト.",
+  "permissions": ["cookies", "storage", "proxy", "webRequest", "webRequestAuthProvider"],
+  "host_permissions": [
+    "*://*.dmm.com/*",
+    "*://*.dmm.co.jp/*"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "DMM Region Fix",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_page": "options.html"
+}

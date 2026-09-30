@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  body{width:300px;background:#0f1117;color:#e6e6e6;font-family:Segoe UI,system-ui,sans-serif;padding:16px;margin:0}
+  h1{font-size:1em;margin:0 0 12px}
+  .row{display:flex;justify-content:space-between;align-items:center;margin:8px 0;font-size:0.9em}
+  .ok{color:#5dd39e}.bad{color:#ff7b72}.dim{color:#9aa0b0}
+  button{background:#3b6ef5;color:#fff;border:0;border-radius:6px;padding:8px 14px;font-weight:600;cursor:pointer;width:100%;margin-top:10px}
+  button:hover{background:#5080f8}
+  .link{color:#8ab4ff;cursor:pointer;text-decoration:underline;font-size:0.85em;text-align:center;display:block;margin-top:10px}
+  .game{display:block;text-align:center;margin-top:12px;background:#1a1d27;border:1px solid #2a2e3d;border-radius:6px;padding:8px;color:#8ab4ff;text-decoration:none;font-size:0.9em}
+  #proxyErr{color:#ff7b72;font-size:0.8em;margin-top:6px;word-break:break-all}
+</style>
+</head>
+<body>
+  <h1>🎮 DMM Region Fix</h1>
+
+  <div class="row"><span>Cookies (region + age)</span><span id="cookieStatus" class="dim">…</span></div>
+  <div class="row"><span>Japan proxy for DMM</span><span id="proxyStatus" class="dim">…</span></div>
+  <div id="proxyErr"></div>
+
+  <button id="fixNow">Re-apply cookies now</button>
+  <span class="link" id="openOptions">Proxy settings…</span>
+  <a class="game" href="https://games.dmm.co.jp/detail/pjivn_293854" target="_blank">Open イヴンタイト (Iv Title) ↗</a>
+
+  <script src="popup.js"></script>
+</body>
+</html>
